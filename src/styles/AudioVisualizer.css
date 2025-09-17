@@ -1,0 +1,68 @@
+.audio-visualizer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.visualizer-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  background: #000;
+  cursor: none;
+  z-index: 1;
+}
+
+/* Performance optimizations */
+.visualizer-canvas {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Ensure hardware acceleration */
+.audio-visualizer,
+.visualizer-canvas {
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+}
+
+/* Hide cursor during immersive experience */
+.audio-visualizer:fullscreen .visualizer-canvas {
+  cursor: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .audio-visualizer {
+    display: none; /* This should not show on mobile due to the fallback */
+  }
+}
+
+/* Performance mode for lower-end devices */
+@media (max-resolution: 150dpi) {
+  .visualizer-canvas {
+    image-rendering: auto;
+  }
+}
+
+/* High DPI adjustments */
+@media (min-resolution: 300dpi) {
+  .visualizer-canvas {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: optimize-contrast;
+  }
+} 

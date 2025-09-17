@@ -1,0 +1,108 @@
+.mobile-fallback {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  overflow: hidden;
+}
+
+.mobile-content {
+  text-align: center;
+  max-width: 400px;
+  z-index: 2;
+  position: relative;
+}
+
+.mobile-icon {
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.mobile-orb {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #e91e63, #9c27b0);
+  animation: breathe 3s ease-in-out infinite;
+  box-shadow: 0 0 30px rgba(233, 30, 99, 0.4);
+}
+
+.mobile-title {
+  font-size: 2.5rem;
+  font-weight: 300;
+  margin-bottom: 2rem;
+  color: #fff;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+.mobile-message {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.mobile-submessage {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 3rem;
+  line-height: 1.5;
+}
+
+.mobile-link {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  padding: 12px 24px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 6px;
+  text-decoration: none;
+  display: inline-block;
+  font-family: inherit;
+}
+
+.mobile-link:hover {
+  border-color: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.mobile-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at 30% 70%, 
+    rgba(233, 30, 99, 0.1) 0%, 
+    transparent 50%
+  ),
+  radial-gradient(
+    circle at 80% 20%, 
+    rgba(156, 39, 176, 0.1) 0%, 
+    transparent 50%
+  );
+  z-index: 1;
+}
+
+@keyframes breathe {
+  0%, 100% { 
+    transform: scale(1); 
+    box-shadow: 0 0 30px rgba(233, 30, 99, 0.4);
+  }
+  50% { 
+    transform: scale(1.05); 
+    box-shadow: 0 0 40px rgba(233, 30, 99, 0.6);
+  }
+} 
